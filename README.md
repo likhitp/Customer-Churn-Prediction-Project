@@ -109,26 +109,28 @@ The dataset includes customer demographics, transaction history, and credit-rela
    - Observed skewed distribution in `Credit_Limit`.
 
      leading to outlier treatment.
-     
-   ![boxplot_std](https://github.com/user-attachments/assets/19c73e06-c54e-47bc-8e12-9f1ac1aad3d7)
+
+     ![boxplot_std](https://github.com/user-attachments/assets/99669eb7-b954-4fe4-bf65-f07e6166c6eb)
 
    <suggestions: Consider including a box plot to visually convey these findings.>
 
-2. **Correlation Analysis**:
+1. **Correlation Analysis**:
    - Noted strong correlation between `Credit_Limit` and `Avg_Open_To_Buy`.
    - Moderate correlation observed between `Total_Trans_Amt` and `Total_Trans_Ct`.
+  
+   ![correlation_heatmap](https://github.com/user-attachments/assets/877ec85a-de7b-45c6-8f1e-00abc76c2787)
 
-   ![correlation_heatmap](https://github.com/user-attachments/assets/2fa9cb6b-0cf7-4323-8bf2-b333f19c2591)
+
 
   
 
-3. **Distribution Analysis**:
+2. **Distribution Analysis**:
    - Discovered skewed distributions in financial features.
    - Clear separation between churners and non-churners in transaction patterns.
   
-   ![dist_0](https://github.com/user-attachments/assets/220d2fe5-8f43-4205-b30d-548bee04f5d7)
+![dist_0](https://github.com/user-attachments/assets/471572b7-528b-4173-bffa-faa9b0ab8ff9)
 
-   ![pairplot_derived](https://github.com/user-attachments/assets/406f8e84-97e8-4f6f-8a9f-5ef0a6950d38)
+![pairplot_derived](https://github.com/user-attachments/assets/3ed7f52e-254d-4ef2-a49a-543a7c8a7574)
 
 
 ---
@@ -151,9 +153,9 @@ In the exploratory analysis, several critical patterns emerged that are highly i
 - **Higher Inactive Months**: Customers who show higher counts of inactive months are significantly more likely to churn. Extended inactivity could reflect disinterest or low satisfaction with the services provided, making it an essential factor for customer engagement teams to monitor closely.
 - **Lower Relationship Count**: Customers with fewer product relationships (e.g., checking, savings, loans) are at higher risk for churn. The relationship count is a measure of how deeply integrated a customer is with the bank, so fewer connections imply a weaker bond and, thus, a higher risk of attrition.
 
-![image](https://github.com/user-attachments/assets/7d3d8510-1374-4d56-bd63-c6ec05515f6c)
+![transaction_patterns](https://github.com/user-attachments/assets/d448dd83-e6c7-4c27-b379-e0932238f460)
 
-![image](https://github.com/user-attachments/assets/446a3e98-7493-47dc-b935-5c54779a7fe5)
+![engagement_patterns](https://github.com/user-attachments/assets/6eea28fb-d855-4c69-9882-69acb550ca9b)
 
 ---
 
@@ -169,7 +171,8 @@ The analysis identified the most significant predictive features influencing chu
 - **Avg_Utilization_Ratio (7.9%)**: Average utilization ratio reflects the extent to which customers use their available credit. Customers with a low utilization ratio are more likely to churn, suggesting a decreased reliance on the bank’s credit facilities. Proactive strategies can target these users to encourage higher credit engagement.
 - **Total_Relationship_Count (7.5%)**: This metric indicates the number of products a customer has with the bank. A higher relationship count signifies a deeper connection with the bank, which is associated with lower churn risk. Encouraging customers to open multiple accounts or products can enhance their engagement and loyalty.
 
-![image](https://github.com/user-attachments/assets/5cb9f596-9817-4fee-98e9-9adc4ade8b76)
+
+![feature_importance](https://github.com/user-attachments/assets/66c4db92-9ac1-436d-a772-6da40d21376f)
 
 
 ---
@@ -191,7 +194,6 @@ To enhance predictive power, several derived features were created to capture co
 - **Retained**: Transaction pairs (e.g., `Total_Trans_Amt`, `Total_Trans_Ct`) were kept due to their individual predictive power despite correlation.
 - **Prioritized**: Features demonstrating clear separability between churners and non-churners were prioritized, contributing to model performance improvements.
 
-<suggestions: Consider adding a table summarizing derived features, their definitions, and rationales for easier readability.>
 
 ---
 
@@ -213,10 +215,11 @@ A robust preprocessing pipeline was implemented to prepare data for modeling. Th
   - For numerical features, mean imputation was used to replace missing values.
   - For categorical features, mode imputation was implemented.
  
-   ![image](https://github.com/user-attachments/assets/04324a96-6caa-4535-91c2-44bb49ac469d)
- 
 
-<suggestions: Visualize distributions before and after transformations, particularly for skewed and scaled features, to show the impact of preprocessing steps.>
+ 
+![transform_impact_Total_Trans_Amt](https://github.com/user-attachments/assets/3b81cc4d-393a-4e5b-a03d-4fde2d5a6b5d)
+
+
 
 ---
 
@@ -237,6 +240,10 @@ Three machine learning models were tested for this project, each with unique adv
 3. **XGBoost (Champion)**:
    - **ROC AUC**: 0.9919
    - Best overall performance, particularly with a precision of 0.92 on churned customers, making it the champion model for identifying high-risk customers.
+  
+   ![precision_recall_curves](https://github.com/user-attachments/assets/352d4c8e-6006-4c7a-9b64-8e670de70af6)
+![roc_curves](https://github.com/user-attachments/assets/b0bfc618-f0b9-4a7c-b11d-9db5f45e311e)
+
 
 ### Class Imbalance
 
@@ -245,9 +252,7 @@ The original class ratio was heavily imbalanced, with 84% non-churners and 16% c
 - **Solution**: SMOTE (Synthetic Minority Oversampling Technique) was applied to balance the dataset.
 - **Result**: Balanced training set without information loss, enabling more reliable model predictions.
 
-![image](https://github.com/user-attachments/assets/0d6fd9e0-0303-453e-ad4c-f05aa6a77829)
 
-![image](https://github.com/user-attachments/assets/117e0256-4fa8-4bbd-8148-b45a0bdb9978)
 
 
 ---
