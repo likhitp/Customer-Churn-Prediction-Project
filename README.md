@@ -24,7 +24,7 @@ This project aims to address a significant challenge in the banking sector: cust
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/bank-churners.git
+git clone https://github.com/likhitp/Customer-Churn-Prediction-Project.git
 
 # Navigate to project directory
 cd bank-churners
