@@ -19,6 +19,72 @@
 ### Business Context
 This project aims to address a significant challenge in the banking sector: customer churn prediction. Retaining customers is more cost-effective than acquiring new ones, making it crucial for profitability.
 
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/bank-churners.git
+
+# Navigate to project directory
+cd bank-churners
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+.\venv\Scripts\activate
+# On Unix or MacOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## Usage
+
+```bash
+# Run the preprocessing pipeline
+python src/main.py
+
+# Train the models
+python src/model_training.py
+
+# Generate visualizations
+python src/visualizations.py
+```
+
+## Project Structure
+
+```
+BANK_CHURNERS/
+├── data/                    # Dataset storage
+│   └── BankChurners.csv
+├── models/                  # Trained models and scalers
+│   └── scalers/
+├── notebooks/               # Jupyter notebooks for exploration
+│   ├── exploratory_analysis.ipynb
+│   └── model_development.ipynb
+├── src/                     # Source code
+│   ├── main.py              # Main preprocessing pipeline
+│   ├── model_training.py    # Model training scripts
+│   └── visualizations.py    # Visualization generation
+├── visualizations/          # Generated plots and figures
+├── README.md
+└── requirements.txt
+```
+
+## Technologies Used
+
+- Python 3.8+
+- scikit-learn
+- XGBoost
+- pandas
+- numpy
+- matplotlib
+- seaborn
+
 ### Key Business Objectives
 - **Demographic Analysis**: Identify high-risk customer segments and patterns in gender, marital status, education, and income.
 - **Behavioral Pattern Analysis**: Examine transaction behaviors, credit usage, and engagement metrics for early churn warning signs.
